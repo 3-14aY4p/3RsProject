@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c774mag5th37b"]
+
+[ext_resource type="Texture2D" uid="uid://cv4u25ygwcxao" path="res://assets/art/machinery/machineryG1_sh.png" id="1_aqwxo"]
+[ext_resource type="Texture2D" uid="uid://c7d62fywa4qf3" path="res://assets/art/machinery/machineryG1.png" id="2_5dewp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqwxo"]
+size = Vector2(34, 20)
+
+[node name="Incinerator" type="StaticBody2D" groups=["machinery"]]
+collision_mask = 0
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("1_aqwxo")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5dewp")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_aqwxo")

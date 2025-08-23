@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ces5rvibfyvpn"]
+
+[ext_resource type="Script" uid="uid://fh1nycnwi0bg" path="res://scripts/game_controller.gd" id="1_vq0e2"]
+
+[node name="GameController" type="Node" node_paths=PackedStringArray("world_2d", "gui")]
+script = ExtResource("1_vq0e2")
+world_2d = NodePath("World2D")
+gui = NodePath("GUI")
+
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
