@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://by1ru37mo7lxj"]
+
+[ext_resource type="Texture2D" uid="uid://bg2ypf2rbxgok" path="res://assets/art/minigame/waste_organic.png" id="1_bxfxm"]
+[ext_resource type="Script" uid="uid://c6x5woy5xbc46" path="res://scripts/resources/item_data.gd" id="1_wtfj3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdpjg"]
+atlas = ExtResource("1_bxfxm")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_wtfj3")
+item_name = "fish bone"
+item_icon = SubResource("AtlasTexture_cdpjg")
+item_type = "organic"
+metadata/_custom_type_script = "uid://c6x5woy5xbc46"

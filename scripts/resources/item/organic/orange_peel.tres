@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bfnwnn5fsht05"]
+
+[ext_resource type="Texture2D" uid="uid://bg2ypf2rbxgok" path="res://assets/art/minigame/waste_organic.png" id="1_vvm48"]
+[ext_resource type="Script" uid="uid://c6x5woy5xbc46" path="res://scripts/resources/item_data.gd" id="1_ydkb1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbvcx"]
+atlas = ExtResource("1_vvm48")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_ydkb1")
+item_name = "orange peel"
+item_icon = SubResource("AtlasTexture_bbvcx")
+item_type = "organic"
+metadata/_custom_type_script = "uid://c6x5woy5xbc46"

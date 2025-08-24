@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c0b7up7vgqmle"]
+
+[ext_resource type="Texture2D" uid="uid://c1weu81jbq3dc" path="res://assets/art/minigame/waste_recyclable.png" id="1_h6lmx"]
+[ext_resource type="Script" uid="uid://c6x5woy5xbc46" path="res://scripts/resources/item_data.gd" id="1_rd46i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phovl"]
+atlas = ExtResource("1_h6lmx")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_rd46i")
+item_name = "plastic bottle"
+item_icon = SubResource("AtlasTexture_phovl")
+item_type = "recyclable"
+metadata/_custom_type_script = "uid://c6x5woy5xbc46"

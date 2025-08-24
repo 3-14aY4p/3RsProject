@@ -1,13 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjmp86pj3ytnw"]
+[gd_scene load_steps=7 format=3 uid="uid://cjmp86pj3ytnw"]
 
 [ext_resource type="Texture2D" uid="uid://g6pnij5cewnj" path="res://assets/art/machinery/machineryG2_sh.png" id="1_cohrf"]
+[ext_resource type="PackedScene" uid="uid://bmy7v5qkn5kpj" path="res://scenes/interaction/interactable.tscn" id="1_ml8bk"]
+[ext_resource type="Script" uid="uid://bb6m0hedorepb" path="res://scripts/machinery/sorting_table.gd" id="1_xqol3"]
 [ext_resource type="Texture2D" uid="uid://bofgw1p03ud5q" path="res://assets/art/machinery/machineryG2.png" id="2_7rtcl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ml8bk"]
+size = Vector2(26, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rtcl"]
 size = Vector2(24, 16)
 
 [node name="SortingTable" type="StaticBody2D" groups=["machinery"]]
 collision_mask = 0
+script = ExtResource("1_xqol3")
+
+[node name="Interactable" parent="." instance=ExtResource("1_ml8bk")]
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ml8bk")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture = ExtResource("1_cohrf")
@@ -22,3 +34,8 @@ region_rect = Rect2(0, 0, 32, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_7rtcl")
+
+[connection signal="body_entered" from="Interactable" to="." method="_on_interactable_body_entered"]
+[connection signal="body_exited" from="Interactable" to="." method="_on_interactable_body_exited"]
+
+[editable path="Interactable"]

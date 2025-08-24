@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cjlrfpj52p0xj"]
+
+[ext_resource type="Texture2D" uid="uid://c1weu81jbq3dc" path="res://assets/art/minigame/waste_recyclable.png" id="1_ik3hk"]
+[ext_resource type="Script" uid="uid://c6x5woy5xbc46" path="res://scripts/resources/item_data.gd" id="1_llngd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upcpt"]
+atlas = ExtResource("1_ik3hk")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_llngd")
+item_name = "soda can"
+item_icon = SubResource("AtlasTexture_upcpt")
+item_type = "recyclable"
+metadata/_custom_type_script = "uid://c6x5woy5xbc46"

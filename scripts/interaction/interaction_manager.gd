@@ -18,14 +18,17 @@ func unregister_area(area : Interactable):
 		active_areas.remove_at(index)
 
 func _process(delta: float) -> void:
-	if player.on_hand:
+	if player.on_hand and not player.in_machine_range:
 		can_interact = false
 	else:
 		can_interact = true
 	
 	if active_areas.size() > 0 and can_interact:
 		active_areas.sort_custom(_sort_by_distance)
-		label.text = base_text + active_areas[0].interaction_name
+		if not player.on_hand or player.in_machine_range:
+			label.text = base_text + active_areas[0].interaction_name
+		else:
+			label.text = ""
 		
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= 36

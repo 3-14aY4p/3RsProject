@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt73ltasctf00"]
+
+[ext_resource type="Script" uid="uid://c60msmgn431f1" path="res://scripts/minigame/item.gd" id="1_viss7"]
+[ext_resource type="Shader" uid="uid://delhrbijxnvgm" path="res://scripts/shaders/pixel_outline.gdshader" id="2_jmpw5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ou6s"]
+shader = ExtResource("2_jmpw5")
+shader_parameter/outline_color = Color(1, 0.933333, 0.8, 1)
+shader_parameter/corner_pixel = true
+shader_parameter/visible = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmpw5"]
+radius = 8.0
+
+[node name="ItemInstance" type="Node2D"]
+script = ExtResource("1_viss7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4ou6s")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jmpw5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

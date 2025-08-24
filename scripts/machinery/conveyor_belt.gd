@@ -11,7 +11,6 @@ var on_slope : Array[ObjectInstance] = []
 
 
 func _ready() -> void:
-	await spawn_timer.wait_time
 	spawn_timer.wait_time = spawn_interval
 
 func _physics_process(delta: float) -> void:
