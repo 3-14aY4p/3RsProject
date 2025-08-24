@@ -1,16 +1,15 @@
-[gd_scene load_steps=7 format=4 uid="uid://b7m2x5dh2ec7f"]
+[gd_scene load_steps=6 format=4 uid="uid://b7m2x5dh2ec7f"]
 
 [ext_resource type="PackedScene" uid="uid://duq66wesrxnev" path="res://scenes/minigame/sorting_crate.tscn" id="1_cmxrk"]
 [ext_resource type="PackedScene" uid="uid://b1nnuugnw8qkn" path="res://scenes/containers/tilemap_container.tscn" id="1_hdht8"]
 [ext_resource type="PackedScene" uid="uid://bt73ltasctf00" path="res://scenes/minigame/item_instance.tscn" id="2_v5xto"]
 [ext_resource type="Resource" uid="uid://dt0hyatw8yvfk" path="res://scripts/resources/item/organic/banana_peel.tres" id="3_fv8de"]
-[ext_resource type="Resource" uid="uid://c0b7up7vgqmle" path="res://scripts/resources/item/recyclable/plastic_bottle.tres" id="4_prnor"]
-[ext_resource type="Resource" uid="uid://x1hk6ljmq40e" path="res://scripts/resources/item/sanitary/used_syringe.tres" id="5_prnor"]
+[ext_resource type="Texture2D" uid="uid://bvxoxpiheq1ke" path="res://assets/art/minigame/sorting_table.png" id="3_wgnsv"]
 
 [node name="SortingMinigame" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.484187, 0.463985, 0.614547, 1)
+color = Color(0.6732, 0.646, 0.85, 1)
 
 [node name="TileMapContainer" parent="." instance=ExtResource("1_hdht8")]
 
@@ -20,30 +19,28 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAAAAAEAAAABAAIAAAAAAAIAAAABAAI
 [node name="SortingCrateContainer" type="Node2D" parent="."]
 
 [node name="SortingCrate" parent="SortingCrateContainer" instance=ExtResource("1_cmxrk")]
-position = Vector2(24, 32)
+position = Vector2(24, 34)
+container_type = "medical"
 
 [node name="SortingCrate2" parent="SortingCrateContainer" instance=ExtResource("1_cmxrk")]
-position = Vector2(72, 32)
+position = Vector2(72, 34)
+container_type = "recyclable"
 
 [node name="SortingCrate3" parent="SortingCrateContainer" instance=ExtResource("1_cmxrk")]
-position = Vector2(120, 32)
+position = Vector2(120, 34)
+container_type = "organic"
 
-[node name="ItemContainer" type="Node2D" parent="."]
-
-[node name="ItemInstance" parent="ItemContainer" instance=ExtResource("2_v5xto")]
-position = Vector2(24, 88)
-item_data = ExtResource("3_fv8de")
-
-[node name="ItemInstance2" parent="ItemContainer" instance=ExtResource("2_v5xto")]
-position = Vector2(72, 88)
-item_data = ExtResource("4_prnor")
-
-[node name="ItemInstance3" parent="ItemContainer" instance=ExtResource("2_v5xto")]
-position = Vector2(120, 88)
-item_data = ExtResource("5_prnor")
+[node name="SortingTableSprite" type="Sprite2D" parent="."]
+position = Vector2(72, 105)
+scale = Vector2(2.25, 2)
+texture = ExtResource("3_wgnsv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(72, 72)
 zoom = Vector2(8, 8)
+
+[node name="ItemInstance" parent="." instance=ExtResource("2_v5xto")]
+position = Vector2(72.6327, 88.2245)
+item_data = ExtResource("3_fv8de")
 
 [editable path="TileMapContainer"]

@@ -1,14 +1,16 @@
-extends Node2D
+class_name ItemInstance extends Node2D
 
 @export var item_data : ItemData
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var is_draggable : bool = false
-var is_in_item_slot : bool = false
-var item_slot
+var dropped_in_crate : bool = false
+var sorting_crate : SortingCrate
 
 var initial_position : Vector2
 var offset : Vector2
+
 
 func _ready() -> void:
 	#TO-DO: code here to randomize the item upon initialization
@@ -26,24 +28,26 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_released("_left_click"):
 			Global.is_dragging = false
 			var tween = get_tree().create_tween()
-			if is_in_item_slot:
-				tween.tween_property(self, "position", item_slot.position + Vector2(0, -6), 0.2).set_ease(Tween.EASE_OUT)
+			if dropped_in_crate and sorting_crate.container_type == item_data.item_type:
+				tween.tween_property(self, "position", sorting_crate.position + Vector2(0, -7), 0.2).set_ease(Tween.EASE_OUT)
+				$AnimationPlayer.play("accepted")
 			else:
 				tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)
+				print("WRONG CONTAINER.")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("droppable"):
-		is_in_item_slot = true
-		item_slot = body
+		dropped_in_crate = true
+		sorting_crate = body
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("droppable"):
-		is_in_item_slot = false
+		dropped_in_crate = false
 
 func _on_area_2d_mouse_entered() -> void:
 	if not Global.is_dragging:
 		is_draggable = true
-		scale = Vector2(1.2, 1.2)
+		scale = Vector2(1.1, 1.1)
 
 func _on_area_2d_mouse_exited() -> void:
 	if not Global.is_dragging:
