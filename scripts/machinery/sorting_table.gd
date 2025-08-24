@@ -12,7 +12,9 @@ func _ready() -> void:
 func _on_interact():
 	if player.on_hand:
 		if player.on_hand.obj_name == "crate":
-			Global.game_controller.change_2d_scene("res://scenes/minigame/levels/sorting_minigame.tscn", false, false)
+			player.on_hand = null
+			Global.game_controller.change_2d_scene("res://scenes/minigame/levels/sorting_minigame.tscn", false, true)
+			#instantiate product crates
 
 func _on_interactable_body_entered(body: Node2D) -> void:
 	if body == player:

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://40ytafmm65e3"]
+
+[ext_resource type="Texture2D" uid="uid://bqoia2bdoydl8" path="res://assets/art/minigame/unsorted_crate.png" id="1_rlqt8"]
+[ext_resource type="Script" uid="uid://d2e5ll4i52qpp" path="res://scripts/minigame/unsorted_crate.gd" id="1_uwqmi"]
+[ext_resource type="FontFile" uid="uid://cfa8dim7akpnk" path="res://assets/font/Early GameBoy.ttf" id="3_i07no"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i07no"]
+size = Vector2(48, 36)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6r3d6"]
+font = ExtResource("3_i07no")
+font_size = 4
+outline_size = 4
+outline_color = Color(0.27451, 0.258824, 0.368627, 1)
+
+[node name="UnsortedCrate" type="StaticBody2D"]
+script = ExtResource("1_uwqmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 0)
+scale = Vector2(2, 1.78125)
+texture = ExtResource("1_rlqt8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_i07no")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, -6)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 18.0
+offset_bottom = -27.0
+grow_horizontal = 2
+text = "item name"
+label_settings = SubResource("LabelSettings_6r3d6")
+horizontal_alignment = 1
+vertical_alignment = 1

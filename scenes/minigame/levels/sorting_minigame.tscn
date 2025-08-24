@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b7m2x5dh2ec7f"]
+[gd_scene load_steps=5 format=4 uid="uid://b7m2x5dh2ec7f"]
 
 [ext_resource type="PackedScene" uid="uid://duq66wesrxnev" path="res://scenes/minigame/sorting_crate.tscn" id="1_cmxrk"]
 [ext_resource type="PackedScene" uid="uid://b1nnuugnw8qkn" path="res://scenes/containers/tilemap_container.tscn" id="1_hdht8"]
-[ext_resource type="PackedScene" uid="uid://bt73ltasctf00" path="res://scenes/minigame/item_instance.tscn" id="2_v5xto"]
-[ext_resource type="Resource" uid="uid://dt0hyatw8yvfk" path="res://scripts/resources/item/organic/banana_peel.tres" id="3_fv8de"]
 [ext_resource type="Texture2D" uid="uid://bvxoxpiheq1ke" path="res://assets/art/minigame/sorting_table.png" id="3_wgnsv"]
+[ext_resource type="PackedScene" uid="uid://40ytafmm65e3" path="res://scenes/minigame/unsorted_crate.tscn" id="6_hdht8"]
 
 [node name="SortingMinigame" type="Node2D"]
 
@@ -30,17 +29,20 @@ container_type = "recyclable"
 position = Vector2(120, 34)
 container_type = "organic"
 
-[node name="SortingTableSprite" type="Sprite2D" parent="."]
+[node name="UnsortedItemsContainer" type="Node2D" parent="."]
+
+[node name="SortingTableSprite" type="Sprite2D" parent="UnsortedItemsContainer"]
 position = Vector2(72, 105)
 scale = Vector2(2.25, 2)
 texture = ExtResource("3_wgnsv")
+
+[node name="UnsortedCrate" parent="UnsortedItemsContainer" instance=ExtResource("6_hdht8")]
+position = Vector2(72, 140)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(72, 72)
 zoom = Vector2(8, 8)
 
-[node name="ItemInstance" parent="." instance=ExtResource("2_v5xto")]
-position = Vector2(72.6327, 88.2245)
-item_data = ExtResource("3_fv8de")
+[node name="SortingMinigame" type="Node2D" parent="."]
 
 [editable path="TileMapContainer"]

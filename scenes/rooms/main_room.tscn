@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://hmldedoswc0x"]
+[gd_scene load_steps=10 format=4 uid="uid://hmldedoswc0x"]
 
 [ext_resource type="PackedScene" uid="uid://b1nnuugnw8qkn" path="res://scenes/containers/tilemap_container.tscn" id="1_2sapw"]
+[ext_resource type="Script" uid="uid://ddd3k5kcum4po" path="res://scripts/room/main_room.gd" id="1_p4n1q"]
 [ext_resource type="PackedScene" uid="uid://cujrladql8h8l" path="res://scenes/machinery/conveyor_belt.tscn" id="2_1webf"]
 [ext_resource type="PackedScene" uid="uid://o0wmxvvl5xp" path="res://scenes/player/player.tscn" id="2_5t81v"]
 [ext_resource type="PackedScene" uid="uid://cjmp86pj3ytnw" path="res://scenes/machinery/sorting_table.tscn" id="2_lfv5u"]
@@ -11,6 +12,7 @@
 
 [node name="MainRoom" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_p4n1q")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.484187, 0.463985, 0.614547, 1)
@@ -54,7 +56,10 @@ position = Vector2(120, 168)
 [node name="ObjectContainer" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="SpawnMarker" type="Marker2D" parent="."]
+position = Vector2(104, 60)
+
 [node name="Player" parent="." instance=ExtResource("2_5t81v")]
-position = Vector2(38, 73)
+position = Vector2(104, 60)
 
 [editable path="TileMapContainer"]

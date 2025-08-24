@@ -1,21 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0a80lqy5tb1"]
+[gd_scene load_steps=8 format=3 uid="uid://d0a80lqy5tb1"]
 
 [ext_resource type="Texture2D" uid="uid://b5sv6a3hly7ir" path="res://assets/art/objects/objectsG1_sh.png" id="1_ls5c6"]
 [ext_resource type="Script" uid="uid://cv0s444u36jju" path="res://scripts/objects/object.gd" id="1_m8sg4"]
 [ext_resource type="PackedScene" uid="uid://bmy7v5qkn5kpj" path="res://scenes/interaction/interactable.tscn" id="1_xu5n6"]
+[ext_resource type="Resource" uid="uid://cqonh71ir0tx6" path="res://scripts/resources/objects/crate.tres" id="2_i7bfj"]
 [ext_resource type="Texture2D" uid="uid://cklslbcb32hie" path="res://assets/art/objects/objectsG1.png" id="2_xu5n6"]
-[ext_resource type="Script" uid="uid://djhr2fqsqffkh" path="res://scripts/resources/object_data.gd" id="3_i7bfj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6e66r"]
-atlas = ExtResource("2_xu5n6")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="Resource" id="Resource_yq3hd"]
-script = ExtResource("3_i7bfj")
-obj_name = "crate"
-obj_icon = SubResource("AtlasTexture_6e66r")
-obj_path = "res://scenes/objects/crate.tscn"
-metadata/_custom_type_script = "uid://djhr2fqsqffkh"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xu5n6"]
 radius = 20.0
@@ -27,7 +16,7 @@ size = Vector2(14, 8)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_m8sg4")
-object_data = SubResource("Resource_yq3hd")
+object_data = ExtResource("2_i7bfj")
 
 [node name="Interactable" parent="." groups=["object"] instance=ExtResource("1_xu5n6")]
 collision_layer = 4

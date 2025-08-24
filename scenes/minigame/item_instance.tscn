@@ -1,11 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt73ltasctf00"]
+[gd_scene load_steps=19 format=3 uid="uid://bt73ltasctf00"]
 
 [ext_resource type="Script" uid="uid://c60msmgn431f1" path="res://scripts/minigame/item.gd" id="1_viss7"]
 [ext_resource type="Shader" uid="uid://delhrbijxnvgm" path="res://scripts/shaders/pixel_outline.gdshader" id="2_jmpw5"]
+[ext_resource type="Script" uid="uid://c6x5woy5xbc46" path="res://scripts/resources/item_data.gd" id="3_4ou6s"]
+[ext_resource type="Resource" uid="uid://dt0hyatw8yvfk" path="res://scripts/resources/item/organic/banana_peel.tres" id="3_wl8kt"]
+[ext_resource type="Resource" uid="uid://by1ru37mo7lxj" path="res://scripts/resources/item/organic/fish_bone.tres" id="4_ruil2"]
+[ext_resource type="Resource" uid="uid://bfnwnn5fsht05" path="res://scripts/resources/item/organic/orange_peel.tres" id="5_nnc5d"]
+[ext_resource type="Resource" uid="uid://bf4fsa1lvwys1" path="res://scripts/resources/item/recyclable/glass_bottle.tres" id="6_caum7"]
+[ext_resource type="Resource" uid="uid://c0b7up7vgqmle" path="res://scripts/resources/item/recyclable/plastic_bottle.tres" id="7_l6nr1"]
+[ext_resource type="Resource" uid="uid://cjlrfpj52p0xj" path="res://scripts/resources/item/recyclable/soda_can.tres" id="8_vde8k"]
+[ext_resource type="Resource" uid="uid://c5t6wq1y6mp85" path="res://scripts/resources/item/sanitary/used_bandage.tres" id="9_hk386"]
+[ext_resource type="Resource" uid="uid://x1hk6ljmq40e" path="res://scripts/resources/item/sanitary/used_syringe.tres" id="10_ax12a"]
+[ext_resource type="Resource" uid="uid://btdhrut5wfcgs" path="res://scripts/resources/item/sanitary/used_vial.tres" id="11_lxqh0"]
+[ext_resource type="Texture2D" uid="uid://bn025usq7ayd3" path="res://assets/art/minigame/waste_medical.png" id="13_ruil2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ou6s"]
 shader = ExtResource("2_jmpw5")
-shader_parameter/outline_color = Color(1, 0.933333, 0.8, 1)
+shader_parameter/outline_color = Color(1, 0.933333, 0.8, 0.509804)
 shader_parameter/corner_pixel = true
 shader_parameter/visible = true
 
@@ -76,11 +87,14 @@ _data = {
 }
 
 [node name="ItemInstance" type="Node2D"]
+z_index = 1
 script = ExtResource("1_viss7")
+item_data_array = Array[ExtResource("3_4ou6s")]([ExtResource("3_wl8kt"), ExtResource("4_ruil2"), ExtResource("5_nnc5d"), ExtResource("6_caum7"), ExtResource("7_l6nr1"), ExtResource("8_vde8k"), ExtResource("9_hk386"), ExtResource("10_ax12a"), ExtResource("11_lxqh0")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_4ou6s")
 scale = Vector2(1.3, 1.3)
+texture = ExtResource("13_ruil2")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 

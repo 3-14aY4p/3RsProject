@@ -1,5 +1,7 @@
 class_name GameController extends Node
 
+@onready var main_room: Node2D = $World2D/MainRoom
+
 #@export var world_3d : Node3D
 @export var world_2d : Node2D
 @export var gui : Control
@@ -10,7 +12,7 @@ var current_gui_scene
 
 func _ready() -> void:
 	Global.game_controller = self
-	current_2d_scene = $World2D/MainRoom
+	current_2d_scene = main_room
 
 #func change_3d_scene(new_scene: String, delete: bool =  true, keep_running: bool = false) -> void:
 	#if current_3d_scene != null:

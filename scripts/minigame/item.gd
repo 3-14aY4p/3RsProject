@@ -1,5 +1,6 @@
 class_name ItemInstance extends Node2D
 
+@export var item_data_array : Array[ItemData]
 @export var item_data : ItemData
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -13,7 +14,9 @@ var offset : Vector2
 
 
 func _ready() -> void:
-	#TO-DO: code here to randomize the item upon initialization
+	item_data_array.shuffle()
+	item_data = item_data_array[0]
+	
 	sprite_2d.texture = item_data.item_icon
 
 func _process(delta: float) -> void:
@@ -33,7 +36,6 @@ func _process(delta: float) -> void:
 				$AnimationPlayer.play("accepted")
 			else:
 				tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)
-				print("WRONG CONTAINER.")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("droppable"):
