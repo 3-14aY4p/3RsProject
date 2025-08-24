@@ -4,6 +4,7 @@ class_name ObjectInstance extends CharacterBody2D
 
 @onready var interactable: Interactable = $Interactable
 @onready var player : Player = get_tree().get_first_node_in_group("player")
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 func _ready() -> void:

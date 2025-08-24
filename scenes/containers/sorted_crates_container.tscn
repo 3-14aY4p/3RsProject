@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://jta6fxbq3meu"]
+
+[ext_resource type="PackedScene" uid="uid://dntje03bphf8p" path="res://scenes/objects/sorted_crate_organic.tscn" id="1_gfknv"]
+[ext_resource type="PackedScene" uid="uid://b54yrjopeohus" path="res://scenes/objects/sorted_crate_recyclable.tscn" id="2_v3jhb"]
+[ext_resource type="PackedScene" uid="uid://cpf7n3vxfjkd3" path="res://scenes/objects/sorted_crate_medical.tscn" id="3_nru0r"]
+
+[node name="SortedCratesContainer" type="Node2D"]
+y_sort_enabled = true
+
+[node name="SortedCrateOrganic" parent="." instance=ExtResource("1_gfknv")]
+
+[node name="SortedCrateRecyclable" parent="." instance=ExtResource("2_v3jhb")]
+position = Vector2(0, 8)
+
+[node name="SortedCrateMedical" parent="." instance=ExtResource("3_nru0r")]
+position = Vector2(0, 16)

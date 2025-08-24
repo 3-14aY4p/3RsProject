@@ -15,6 +15,9 @@ size = Vector2(24, 16)
 collision_mask = 0
 script = ExtResource("1_xqol3")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(17, 5)
+
 [node name="Interactable" parent="." instance=ExtResource("1_ml8bk")]
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]

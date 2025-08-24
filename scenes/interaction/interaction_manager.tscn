@@ -13,6 +13,7 @@ outline_color = Color(0.27451, 0.258824, 0.368627, 1)
 script = ExtResource("1_rkcv0")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 12
 anchors_preset = 5
 anchor_left = 0.5

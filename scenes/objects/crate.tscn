@@ -18,7 +18,7 @@ collision_mask = 0
 script = ExtResource("1_m8sg4")
 object_data = ExtResource("2_i7bfj")
 
-[node name="Interactable" parent="." groups=["object"] instance=ExtResource("1_xu5n6")]
+[node name="Interactable" parent="." instance=ExtResource("1_xu5n6")]
 collision_layer = 4
 interaction_name = "pick up"
 

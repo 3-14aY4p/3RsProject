@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ObjectData" load_steps=4 format=3 uid="uid://c050lo2foetig"]
+
+[ext_resource type="Script" uid="uid://djhr2fqsqffkh" path="res://scripts/resources/object_data.gd" id="1_pegbj"]
+[ext_resource type="Texture2D" uid="uid://bcdr157t76aa8" path="res://assets/art/objects/objectsG2.png" id="1_s2iqm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtdix"]
+atlas = ExtResource("1_s2iqm")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_pegbj")
+obj_name = "sorted crate medical"
+obj_icon = SubResource("AtlasTexture_rtdix")
+obj_path = "res://scenes/objects/sorted_crate_medical.tscn"
+metadata/_custom_type_script = "uid://djhr2fqsqffkh"

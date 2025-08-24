@@ -5,44 +5,51 @@
 [ext_resource type="Texture2D" uid="uid://bvxoxpiheq1ke" path="res://assets/art/minigame/sorting_table.png" id="3_wgnsv"]
 [ext_resource type="PackedScene" uid="uid://40ytafmm65e3" path="res://scenes/minigame/unsorted_crate.tscn" id="6_hdht8"]
 
-[node name="SortingMinigame" type="Node2D"]
+[node name="SortingMinigame" type="Control"]
+layout_mode = 3
+anchor_right = 0.125
+anchor_bottom = 0.125
+offset_right = -144.0
+offset_bottom = -144.0
+metadata/_edit_use_anchors_ = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
 color = Color(0.6732, 0.646, 0.85, 1)
 
-[node name="TileMapContainer" parent="." instance=ExtResource("1_hdht8")]
+[node name="TileMapContainer" parent="CanvasLayer" instance=ExtResource("1_hdht8")]
 
-[node name="TileMapLevel" parent="TileMapContainer" index="1"]
+[node name="TileMapLevel" parent="CanvasLayer/TileMapContainer" index="1"]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAAAAAEAAAABAAIAAAAAAAIAAAABAAIAAAAAAAMAAAABAAIAAAAAAAQAAAABAAIAAAAAAAUAAAABAAIAAAAAAAYAAAABAAIAAAAAAAcAAAABAAIAAAAAAAgAAAABAAIAAAABAAAAAAABAAIAAAABAAEAAAABAAIAAAABAAIAAAABAAIAAAABAAMAAAABAAIAAAABAAQAAAABAAIAAAABAAUAAAABAAIAAAABAAYAAAABAAIAAAABAAcAAAABAAIAAAABAAgAAAABAAIAAAACAAAAAAABAAIAAAACAAEAAAABAAIAAAACAAIAAAABAAIAAAACAAMAAAABAAIAAAACAAQAAAABAAIAAAACAAUAAAABAAIAAAACAAYAAAABAAIAAAACAAcAAAABAAIAAAACAAgAAAABAAIAAAADAAAAAAABAAIAAAADAAEAAAABAAIAAAADAAIAAAABAAIAAAADAAMAAAABAAIAAAADAAQAAAABAAIAAAADAAUAAAABAAIAAAADAAYAAAABAAIAAAADAAcAAAABAAIAAAADAAgAAAABAAIAAAAEAAAAAAABAAIAAAAEAAEAAAABAAIAAAAEAAIAAAABAAIAAAAEAAMAAAABAAIAAAAEAAQAAAABAAIAAAAEAAUAAAABAAIAAAAEAAYAAAABAAIAAAAEAAcAAAABAAIAAAAEAAgAAAABAAIAAAAFAAAAAAABAAIAAAAFAAEAAAABAAIAAAAFAAIAAAABAAIAAAAFAAMAAAABAAIAAAAFAAQAAAABAAIAAAAFAAUAAAABAAIAAAAFAAYAAAABAAIAAAAFAAcAAAABAAIAAAAFAAgAAAABAAIAAAAGAAAAAAABAAIAAAAGAAEAAAABAAIAAAAGAAIAAAABAAIAAAAGAAMAAAABAAIAAAAGAAQAAAABAAIAAAAGAAUAAAABAAIAAAAGAAYAAAABAAIAAAAGAAcAAAABAAIAAAAGAAgAAAABAAIAAAAHAAAAAAABAAIAAAAHAAEAAAABAAIAAAAHAAIAAAABAAIAAAAHAAMAAAABAAIAAAAHAAQAAAABAAIAAAAHAAUAAAABAAIAAAAHAAYAAAABAAIAAAAHAAcAAAABAAIAAAAHAAgAAAABAAIAAAAIAAAAAAABAAIAAAAIAAEAAAABAAIAAAAIAAIAAAABAAIAAAAIAAMAAAABAAIAAAAIAAQAAAABAAIAAAAIAAUAAAABAAIAAAAIAAYAAAABAAIAAAAIAAcAAAABAAIAAAAIAAgAAAABAAIAAAA=")
 
-[node name="SortingCrateContainer" type="Node2D" parent="."]
+[node name="SortingCrateContainer" type="Node2D" parent="CanvasLayer"]
 
-[node name="SortingCrate" parent="SortingCrateContainer" instance=ExtResource("1_cmxrk")]
+[node name="SortingCrate" parent="CanvasLayer/SortingCrateContainer" instance=ExtResource("1_cmxrk")]
 position = Vector2(24, 34)
 container_type = "medical"
 
-[node name="SortingCrate2" parent="SortingCrateContainer" instance=ExtResource("1_cmxrk")]
+[node name="SortingCrate2" parent="CanvasLayer/SortingCrateContainer" instance=ExtResource("1_cmxrk")]
 position = Vector2(72, 34)
 container_type = "recyclable"
 
-[node name="SortingCrate3" parent="SortingCrateContainer" instance=ExtResource("1_cmxrk")]
+[node name="SortingCrate3" parent="CanvasLayer/SortingCrateContainer" instance=ExtResource("1_cmxrk")]
 position = Vector2(120, 34)
 container_type = "organic"
 
-[node name="UnsortedItemsContainer" type="Node2D" parent="."]
-
-[node name="SortingTableSprite" type="Sprite2D" parent="UnsortedItemsContainer"]
+[node name="SortingTableSprite" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(72, 105)
 scale = Vector2(2.25, 2)
 texture = ExtResource("3_wgnsv")
 
-[node name="UnsortedCrate" parent="UnsortedItemsContainer" instance=ExtResource("6_hdht8")]
+[node name="UnsortedCrate" parent="CanvasLayer" instance=ExtResource("6_hdht8")]
 position = Vector2(72, 140)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="UnsortedItemsContainer" type="Node2D" parent="CanvasLayer"]
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
 position = Vector2(72, 72)
 zoom = Vector2(8, 8)
 
-[node name="SortingMinigame" type="Node2D" parent="."]
-
-[editable path="TileMapContainer"]
+[editable path="CanvasLayer/TileMapContainer"]
