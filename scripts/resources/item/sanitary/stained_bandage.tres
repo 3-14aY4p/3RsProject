@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c5t6wq1y6mp85"]
+
+[ext_resource type="Texture2D" uid="uid://bn025usq7ayd3" path="res://assets/art/minigame/waste_medical.png" id="1_8m0qc"]
+[ext_resource type="Script" uid="uid://c6x5woy5xbc46" path="res://scripts/resources/item_data.gd" id="2_rdftb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dn0s"]
+atlas = ExtResource("1_8m0qc")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_rdftb")
+item_name = "stained bandage"
+item_icon = SubResource("AtlasTexture_0dn0s")
+item_type = "medical"
+metadata/_custom_type_script = "uid://c6x5woy5xbc46"

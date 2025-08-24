@@ -4,7 +4,7 @@ extends StaticBody2D
 @onready var spawn_timer: Timer = $SpawnTimer
 
 @export var spawn_interval : float = 10
-@export var spawn_count : int = 3
+@export var spawn_count : int = 5
 
 var on_platform : Array[ObjectInstance] = []
 var on_slope : Array[ObjectInstance] = []

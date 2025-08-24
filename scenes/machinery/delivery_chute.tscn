@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvl22mwf5k5ui"]
+[gd_scene load_steps=7 format=3 uid="uid://bvl22mwf5k5ui"]
 
 [ext_resource type="Texture2D" uid="uid://g6pnij5cewnj" path="res://assets/art/machinery/machineryG2_sh.png" id="1_22ua3"]
+[ext_resource type="Script" uid="uid://w47ltntgdgot" path="res://scripts/machinery/delivery_chute.gd" id="1_gnexq"]
 [ext_resource type="Texture2D" uid="uid://bofgw1p03ud5q" path="res://assets/art/machinery/machineryG2.png" id="2_fm3b4"]
+[ext_resource type="PackedScene" uid="uid://bmy7v5qkn5kpj" path="res://scenes/interaction/interactable.tscn" id="3_1sxwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fm3b4"]
 size = Vector2(22, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnexq"]
+size = Vector2(31, 18)
+
 [node name="DeliveryChute" type="StaticBody2D" groups=["machinery"]]
 collision_mask = 0
+script = ExtResource("1_gnexq")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture = ExtResource("1_22ua3")
@@ -24,3 +30,14 @@ region_rect = Rect2(32, 0, 32, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 5)
 shape = SubResource("RectangleShape2D_fm3b4")
+
+[node name="Interactable" parent="." instance=ExtResource("3_1sxwb")]
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(-0.5, 5)
+shape = SubResource("RectangleShape2D_gnexq")
+
+[connection signal="body_entered" from="Interactable" to="." method="_on_interactable_body_entered"]
+[connection signal="body_exited" from="Interactable" to="." method="_on_interactable_body_exited"]
+
+[editable path="Interactable"]

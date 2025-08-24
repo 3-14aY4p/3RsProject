@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://btdhrut5wfcgs"]
 
-[ext_resource type="Script" uid="uid://c6x5woy5xbc46" path="res://scripts/resources/item_data.gd" id="1_0xips"]
-[ext_resource type="Texture2D" uid="uid://bn025usq7ayd3" path="res://assets/art/minigame/waste_medical.png" id="1_jyu2k"]
+[ext_resource type="Texture2D" uid="uid://bn025usq7ayd3" path="res://assets/art/minigame/waste_medical.png" id="1_sac2c"]
+[ext_resource type="Script" uid="uid://c6x5woy5xbc46" path="res://scripts/resources/item_data.gd" id="2_gjl16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsr1h"]
-atlas = ExtResource("1_jyu2k")
+atlas = ExtResource("1_sac2c")
 region = Rect2(16, 0, 16, 16)
 
 [resource]
-script = ExtResource("1_0xips")
-item_name = "used vial"
+script = ExtResource("2_gjl16")
+item_name = "dirty vial"
 item_icon = SubResource("AtlasTexture_fsr1h")
 item_type = "medical"
 metadata/_custom_type_script = "uid://c6x5woy5xbc46"

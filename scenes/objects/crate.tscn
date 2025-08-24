@@ -6,25 +6,17 @@
 [ext_resource type="Resource" uid="uid://cqonh71ir0tx6" path="res://scripts/resources/objects/crate.tres" id="2_i7bfj"]
 [ext_resource type="Texture2D" uid="uid://cklslbcb32hie" path="res://assets/art/objects/objectsG1.png" id="2_xu5n6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xu5n6"]
-radius = 20.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls5c6"]
 size = Vector2(14, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xu5n6"]
+radius = 20.0
 
 [node name="Crate" type="CharacterBody2D" groups=["object"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_m8sg4")
 object_data = ExtResource("2_i7bfj")
-
-[node name="Interactable" parent="." instance=ExtResource("1_xu5n6")]
-collision_layer = 4
-interaction_name = "pick up"
-
-[node name="CollisionShape2D" parent="Interactable" index="0"]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_xu5n6")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture = ExtResource("1_ls5c6")
@@ -41,5 +33,13 @@ region_rect = Rect2(0, 0, 16, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_ls5c6")
+
+[node name="Interactable" parent="." instance=ExtResource("1_xu5n6")]
+collision_layer = 4
+interaction_name = "pick up"
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_xu5n6")
 
 [editable path="Interactable"]

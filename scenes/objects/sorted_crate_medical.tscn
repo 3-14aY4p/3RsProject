@@ -19,7 +19,7 @@ script = ExtResource("1_8uxw6")
 object_data = ExtResource("2_swfrf")
 
 [node name="Interactable" parent="." instance=ExtResource("2_1duec")]
-interaction_name = "pick up"
+interaction_name = "pick up // medical crate"
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 position = Vector2(0, -3)

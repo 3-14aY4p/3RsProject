@@ -9,7 +9,7 @@ region = Rect2(32, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_pegbj")
-obj_name = "sorted crate medical"
+obj_name = "medical crate"
 obj_icon = SubResource("AtlasTexture_rtdix")
 obj_path = "res://scenes/objects/sorted_crate_medical.tscn"
 metadata/_custom_type_script = "uid://djhr2fqsqffkh"

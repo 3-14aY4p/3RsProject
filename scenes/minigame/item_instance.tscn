@@ -9,9 +9,9 @@
 [ext_resource type="Resource" uid="uid://bf4fsa1lvwys1" path="res://scripts/resources/item/recyclable/glass_bottle.tres" id="6_caum7"]
 [ext_resource type="Resource" uid="uid://c0b7up7vgqmle" path="res://scripts/resources/item/recyclable/plastic_bottle.tres" id="7_l6nr1"]
 [ext_resource type="Resource" uid="uid://cjlrfpj52p0xj" path="res://scripts/resources/item/recyclable/soda_can.tres" id="8_vde8k"]
-[ext_resource type="Resource" uid="uid://c5t6wq1y6mp85" path="res://scripts/resources/item/sanitary/used_bandage.tres" id="9_hk386"]
+[ext_resource type="Resource" uid="uid://c5t6wq1y6mp85" path="res://scripts/resources/item/sanitary/stained_bandage.tres" id="9_hk386"]
 [ext_resource type="Resource" uid="uid://x1hk6ljmq40e" path="res://scripts/resources/item/sanitary/used_syringe.tres" id="10_ax12a"]
-[ext_resource type="Resource" uid="uid://btdhrut5wfcgs" path="res://scripts/resources/item/sanitary/used_vial.tres" id="11_lxqh0"]
+[ext_resource type="Resource" uid="uid://btdhrut5wfcgs" path="res://scripts/resources/item/sanitary/dirty_vial.tres" id="11_lxqh0"]
 [ext_resource type="Texture2D" uid="uid://bn025usq7ayd3" path="res://assets/art/minigame/waste_medical.png" id="13_ruil2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ou6s"]
