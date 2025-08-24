@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://o0wmxvvl5xp"]
+[gd_scene load_steps=12 format=3 uid="uid://o0wmxvvl5xp"]
 
 [ext_resource type="Script" uid="uid://cvu334ot18sjw" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://duu7t0exgwfqt" path="res://scripts/player/player_camera.gd" id="2_dovo2"]
 [ext_resource type="Texture2D" uid="uid://k417ln5jxuhv" path="res://assets/art/player/player.png" id="2_gmlin"]
 [ext_resource type="PackedScene" uid="uid://dkvhcvo343ib6" path="res://scenes/interaction/interaction_manager.tscn" id="2_lvxji"]
+[ext_resource type="Texture2D" uid="uid://bolp33ib16d8h" path="res://assets/art/player/player_hand.png" id="4_p47bc"]
 
-[sub_resource type="Animation" id="Animation_lvxji"]
-resource_name = "idle"
-length = 0.1
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_p47bc"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,8 +33,10 @@ tracks/1/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_p47bc"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_lvxji"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,6 +101,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
 size = Vector2(10, 5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
+size = Vector2(14, 11)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 collision_layer = 2
@@ -119,6 +123,15 @@ texture = ExtResource("2_gmlin")
 offset = Vector2(0, -7)
 hframes = 4
 
+[node name="ItemSprite" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(4, -11)
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="HandSprite" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(4, -4)
+texture = ExtResource("4_p47bc")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_gmlin")
@@ -126,3 +139,14 @@ shape = SubResource("RectangleShape2D_gmlin")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(8, 8)
 script = ExtResource("2_dovo2")
+
+[node name="PlacementArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_p47bc")
+
+[connection signal="body_entered" from="PlacementArea" to="." method="_on_placement_area_body_entered"]
+[connection signal="body_exited" from="PlacementArea" to="." method="_on_placement_area_body_exited"]

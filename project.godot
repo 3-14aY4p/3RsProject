@@ -30,6 +30,7 @@ window/stretch/mode="viewport"
 player=""
 tilemap=""
 machinery=""
+object=""
 
 [input]
 

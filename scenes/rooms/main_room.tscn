@@ -12,6 +12,9 @@
 [node name="MainRoom" type="Node2D"]
 y_sort_enabled = true
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.484187, 0.463985, 0.614547, 1)
+
 [node name="TileMapContainer" parent="." instance=ExtResource("1_2sapw")]
 y_sort_enabled = true
 
@@ -47,6 +50,9 @@ position = Vector2(120, 128)
 
 [node name="Composter" parent="MachineryContainer" instance=ExtResource("7_a0oe4")]
 position = Vector2(120, 168)
+
+[node name="ObjectContainer" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_5t81v")]
 position = Vector2(72, 80)
