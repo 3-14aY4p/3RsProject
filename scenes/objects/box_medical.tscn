@@ -12,7 +12,7 @@ size = Vector2(14, 8)
 [sub_resource type="CircleShape2D" id="CircleShape2D_eb6bx"]
 radius = 20.0
 
-[node name="BoxMedical" type="CharacterBody2D"]
+[node name="BoxMedical" type="CharacterBody2D" groups=["object"]]
 script = ExtResource("1_dkh3q")
 object_data = ExtResource("2_b0gkx")
 
@@ -33,7 +33,7 @@ position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_hboom")
 
 [node name="Interactable" parent="." instance=ExtResource("4_nmhbn")]
-interaction_name = "pick up // medical box"
+interaction_name = "medical box"
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 position = Vector2(0, -3)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ObjectData" load_steps=4 format=3 uid="uid://vrklnpualqhm"]
+
+[ext_resource type="Texture2D" uid="uid://cklslbcb32hie" path="res://assets/art/objects/objectsG1.png" id="1_bg7wm"]
+[ext_resource type="Script" uid="uid://djhr2fqsqffkh" path="res://scripts/resources/object_data.gd" id="2_7hgmh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co0bf"]
+atlas = ExtResource("1_bg7wm")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_7hgmh")
+obj_name = "recyclable box"
+obj_icon = SubResource("AtlasTexture_co0bf")
+obj_path = "res://scenes/objects/box_medical.tscn"
+metadata/_custom_type_script = "uid://djhr2fqsqffkh"

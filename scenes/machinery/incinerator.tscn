@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c774mag5th37b"]
+[gd_scene load_steps=8 format=3 uid="uid://c774mag5th37b"]
 
-[ext_resource type="Script" uid="uid://c6jn4cxjd17y4" path="res://scripts/machinery/incinerator.gd" id="1_011tm"]
+[ext_resource type="Script" uid="uid://c6jn4cxjd17y4" path="res://scripts/machinery/machine.gd" id="1_011tm"]
 [ext_resource type="Texture2D" uid="uid://cv4u25ygwcxao" path="res://assets/art/machinery/machineryG1_sh.png" id="1_aqwxo"]
 [ext_resource type="Texture2D" uid="uid://c7d62fywa4qf3" path="res://assets/art/machinery/machineryG1.png" id="2_5dewp"]
 [ext_resource type="PackedScene" uid="uid://bmy7v5qkn5kpj" path="res://scenes/interaction/interactable.tscn" id="3_5dewp"]
+[ext_resource type="PackedScene" uid="uid://7weykc71phy4" path="res://scenes/machinery/item_processing_component.tscn" id="5_jlt8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqwxo"]
 size = Vector2(34, 20)
@@ -14,6 +15,8 @@ size = Vector2(36, 22)
 [node name="Incinerator" type="StaticBody2D" groups=["machinery"]]
 collision_mask = 0
 script = ExtResource("1_011tm")
+container_type = "medical crate"
+box_produced = "res://scenes/objects/box_medical.tscn"
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture = ExtResource("1_aqwxo")
@@ -30,38 +33,17 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_aqwxo")
 
 [node name="Interactable" parent="." instance=ExtResource("3_5dewp")]
+interaction_name = "incinerator"
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_5dewp")
 
-[node name="ItemProcessing" type="Node2D" parent="."]
-
-[node name="ProgressBar" type="ProgressBar" parent="ItemProcessing"]
-anchors_preset = -1
-anchor_left = -0.00868056
-anchor_top = -0.0190972
-anchor_right = 0.00868056
-anchor_bottom = -0.015625
-offset_left = -11.0
-offset_top = -23.0
-offset_right = 99.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-step = 0.001
-fill_mode = 1
-show_percentage = false
-
-[node name="Timer" type="Timer" parent="ItemProcessing"]
-wait_time = 3.0
-
-[node name="SpawnMarker" type="Marker2D" parent="ItemProcessing"]
-position = Vector2(-9, 23)
+[node name="ItemProcessingComponent" parent="." instance=ExtResource("5_jlt8x")]
 
 [connection signal="body_entered" from="Interactable" to="." method="_on_interactable_body_entered"]
 [connection signal="body_exited" from="Interactable" to="." method="_on_interactable_body_exited"]
-[connection signal="timeout" from="ItemProcessing/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ItemProcessingComponent/Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Interactable"]
+[editable path="ItemProcessingComponent"]

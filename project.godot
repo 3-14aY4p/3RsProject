@@ -33,6 +33,7 @@ tilemap=""
 machinery=""
 object=""
 droppable=""
+HUD=""
 
 [input]
 

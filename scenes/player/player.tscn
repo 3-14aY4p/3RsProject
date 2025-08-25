@@ -150,3 +150,5 @@ shape = SubResource("RectangleShape2D_p47bc")
 
 [connection signal="body_entered" from="PlacementArea" to="." method="_on_placement_area_body_entered"]
 [connection signal="body_exited" from="PlacementArea" to="." method="_on_placement_area_body_exited"]
+
+[editable path="InteractionManager"]

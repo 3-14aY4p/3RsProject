@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://4v7ptxpcap8x"]
+[gd_scene load_steps=8 format=3 uid="uid://4v7ptxpcap8x"]
 
+[ext_resource type="Script" uid="uid://c6jn4cxjd17y4" path="res://scripts/machinery/machine.gd" id="1_1glwh"]
 [ext_resource type="Texture2D" uid="uid://cv4u25ygwcxao" path="res://assets/art/machinery/machineryG1_sh.png" id="1_j24h3"]
 [ext_resource type="Texture2D" uid="uid://c7d62fywa4qf3" path="res://assets/art/machinery/machineryG1.png" id="2_vg1ca"]
+[ext_resource type="PackedScene" uid="uid://bmy7v5qkn5kpj" path="res://scenes/interaction/interactable.tscn" id="3_vg1ca"]
+[ext_resource type="PackedScene" uid="uid://7weykc71phy4" path="res://scenes/machinery/item_processing_component.tscn" id="4_am2t7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_am2t7"]
 size = Vector2(34, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1glwh"]
+size = Vector2(36, 22)
+
 [node name="Shredder" type="StaticBody2D" groups=["machinery"]]
 collision_mask = 0
+script = ExtResource("1_1glwh")
+container_type = "recyclable crate"
+box_produced = "res://scenes/objects/box_recycable.tscn"
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture = ExtResource("1_j24h3")
@@ -22,3 +31,26 @@ region_rect = Rect2(0, 32, 48, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_am2t7")
+
+[node name="Interactable" parent="." instance=ExtResource("3_vg1ca")]
+interaction_name = "shredder"
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_1glwh")
+
+[node name="ItemProcessingComponent" parent="." instance=ExtResource("4_am2t7")]
+
+[node name="ProgressBar" parent="ItemProcessingComponent" index="0"]
+offset_top = -19.0
+offset_bottom = -4.0
+
+[node name="SpawnMarker" parent="ItemProcessingComponent" index="2"]
+position = Vector2(-5, 23)
+
+[connection signal="body_entered" from="Interactable" to="." method="_on_interactable_body_entered"]
+[connection signal="body_exited" from="Interactable" to="." method="_on_interactable_body_exited"]
+[connection signal="timeout" from="ItemProcessingComponent/Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Interactable"]
+[editable path="ItemProcessingComponent"]

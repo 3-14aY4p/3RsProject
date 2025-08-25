@@ -3,7 +3,7 @@ class_name UnsortedCrate extends StaticBody2D
 @onready var spawn_point: Marker2D = $SpawnPoint
 @onready var label: Label = $Label
 
-@export var max_spawn_amount : int = 3
+@export var max_spawn_amount : int = 10
 var spawn_amount : int
 var item_instance
 var can_new_item : bool = true
@@ -29,4 +29,4 @@ func _physics_process(delta: float) -> void:
 		spawn_amount -= 1
 		
 	elif not current_item:
-		Global.game_controller.change_gui_scene("res://scenes/control/empty.tscn")
+		Global.game_controller.change_gui_scene("res://scenes/UI/player_hud.tscn")

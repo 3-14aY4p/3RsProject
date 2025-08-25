@@ -5,5 +5,6 @@ var game_controller : GameController
 #for minigame
 var is_dragging : bool = false
 
-#for scoreboard
+#for player HUD
+var interaction_name : String = ""
 var currency : int = 0

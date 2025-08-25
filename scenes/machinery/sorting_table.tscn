@@ -33,6 +33,7 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_7rtcl")
 
 [node name="Interactable" parent="." instance=ExtResource("1_ml8bk")]
+interaction_name = "sorting table"
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 position = Vector2(0, 4)

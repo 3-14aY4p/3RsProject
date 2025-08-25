@@ -32,6 +32,7 @@ position = Vector2(-5, 5)
 shape = SubResource("RectangleShape2D_fm3b4")
 
 [node name="Interactable" parent="." instance=ExtResource("3_1sxwb")]
+interaction_name = "delivery chute"
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 position = Vector2(-0.5, 5)

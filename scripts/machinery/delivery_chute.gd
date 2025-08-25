@@ -15,9 +15,7 @@ func _on_interact():
 	if player.on_hand:
 		if player.on_hand.obj_name == accepted_box:
 			player.on_hand = null
-			Global.currency += 10
-			
-			print(Global.currency)
+			Global.currency += 75
 
 func _on_interactable_body_entered(body: Node2D) -> void:
 	if body == player:

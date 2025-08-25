@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		item_sprite.texture = null
 		hand_sprite.hide()
 	elif on_hand:
-		speed = max_speed / 2
+		speed = max_speed / 1.5
 		item_sprite.texture = on_hand.obj_icon
 		hand_sprite.show()
 	

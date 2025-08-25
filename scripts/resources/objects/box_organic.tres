@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ObjectData" load_steps=4 format=3 uid="uid://bivt7140s58yp"]
+
+[ext_resource type="Texture2D" uid="uid://cklslbcb32hie" path="res://assets/art/objects/objectsG1.png" id="1_jlt30"]
+[ext_resource type="Script" uid="uid://djhr2fqsqffkh" path="res://scripts/resources/object_data.gd" id="2_nkgyk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co0bf"]
+atlas = ExtResource("1_jlt30")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_nkgyk")
+obj_name = "organic box"
+obj_icon = SubResource("AtlasTexture_co0bf")
+obj_path = "res://scenes/objects/box_organic.tscn"
+metadata/_custom_type_script = "uid://djhr2fqsqffkh"

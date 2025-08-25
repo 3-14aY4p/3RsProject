@@ -11,5 +11,6 @@ func _ready() -> void:
 	interactable.interact = Callable(self, "_on_interact")
 
 func _on_interact():
-	player.on_hand = object_data
-	call_deferred("queue_free")
+	if not player.on_hand:
+		player.on_hand = object_data
+		call_deferred("queue_free")

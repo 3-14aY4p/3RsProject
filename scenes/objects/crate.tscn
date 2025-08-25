@@ -36,7 +36,7 @@ shape = SubResource("RectangleShape2D_ls5c6")
 
 [node name="Interactable" parent="." instance=ExtResource("1_xu5n6")]
 collision_layer = 4
-interaction_name = "pick up"
+interaction_name = "unsorted crate"
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 position = Vector2(0, -3)

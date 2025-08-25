@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://53k84em8al8n"]
+
+[ext_resource type="Script" uid="uid://41din1fu8pe0" path="res://scripts/UI/player_hud.gd" id="1_q0ngs"]
+[ext_resource type="FontFile" uid="uid://cfa8dim7akpnk" path="res://assets/font/Early GameBoy.ttf" id="1_umbc4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_umbc4"]
+font = ExtResource("1_umbc4")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxwx5"]
+font = ExtResource("1_umbc4")
+font_size = 48
+
+[node name="PlayerHUD" type="Control" groups=["HUD"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q0ngs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="InteractionLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -77.7
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "// E // to interact"
+label_settings = SubResource("LabelSettings_umbc4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 256.0
+offset_bottom = 64.0
+text = "quota: "
+label_settings = SubResource("LabelSettings_vxwx5")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -39,9 +39,11 @@ accepted_box = "medical box"
 
 [node name="DeliveryChute2" parent="MachineryContainer" instance=ExtResource("4_std1t")]
 position = Vector2(16, 128)
+accepted_box = "recyclable box"
 
 [node name="DeliveryChute3" parent="MachineryContainer" instance=ExtResource("4_std1t")]
 position = Vector2(16, 168)
+accepted_box = "organic box"
 
 [node name="Incinerator" parent="MachineryContainer" instance=ExtResource("5_xjejd")]
 position = Vector2(120, 88)

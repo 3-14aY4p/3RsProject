@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy3b6r5sx1leh"]
+
+[ext_resource type="Script" uid="uid://cv0s444u36jju" path="res://scripts/objects/object.gd" id="1_uchmb"]
+[ext_resource type="Resource" uid="uid://bivt7140s58yp" path="res://scripts/resources/objects/box_organic.tres" id="2_uchmb"]
+[ext_resource type="Texture2D" uid="uid://b5sv6a3hly7ir" path="res://assets/art/objects/objectsG1_sh.png" id="3_w1xbw"]
+[ext_resource type="Texture2D" uid="uid://cklslbcb32hie" path="res://assets/art/objects/objectsG1.png" id="4_tvpes"]
+[ext_resource type="PackedScene" uid="uid://bmy7v5qkn5kpj" path="res://scenes/interaction/interactable.tscn" id="5_q2ihj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hboom"]
+size = Vector2(14, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eb6bx"]
+radius = 20.0
+
+[node name="BoxOrganic" type="CharacterBody2D" groups=["object"]]
+script = ExtResource("1_uchmb")
+object_data = ExtResource("2_uchmb")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("3_w1xbw")
+offset = Vector2(0, -7)
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_tvpes")
+offset = Vector2(0, -7)
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_hboom")
+
+[node name="Interactable" parent="." instance=ExtResource("5_q2ihj")]
+interaction_name = "organic box"
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_eb6bx")
+
+[editable path="Interactable"]

@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var player : Player = get_tree().get_first_node_in_group("player")
-@onready var label : Label = $Label
+@onready var label: Label = $Label
 
-const base_text : String = "// E // to "
+const base_text : String = "// E // "
 
 var active_areas : Array[Interactable] = []
 var can_interact : bool = true
@@ -19,25 +19,28 @@ func unregister_area(area : Interactable):
 
 func _process(delta: float) -> void:
 	if player:
+		if active_areas.size() > 0 and can_interact:
+			active_areas.sort_custom(_sort_by_distance)
+			if not player.on_hand or player.in_machine_range:
+				#label.text = base_text + active_areas[0].interaction_name
+				Global.interaction_name = active_areas[0].interaction_name
+				label.text = "⏷"
+			else:
+				label.text = ""
+			
+			label.global_position = active_areas[0].global_position
+			label.global_position.y -= 32
+			label.global_position.x -= label.size.x / 2
+			
+			label.show()
+		else:
+			label.hide()
+
 		if player.on_hand and not player.in_machine_range:
 			can_interact = false
 		else:
 			can_interact = true
 		
-		if active_areas.size() > 0 and can_interact:
-			active_areas.sort_custom(_sort_by_distance)
-			if not player.on_hand or player.in_machine_range:
-				label.text = base_text + active_areas[0].interaction_name
-			else:
-				label.text = ""
-			
-			label.global_position = active_areas[0].global_position
-			label.global_position.y -= 36
-			label.global_position.x -= label.size.x / 2
-			label.show()
-		else:
-			label.hide()
-
 func _sort_by_distance(area1 : Area2D, area2 : Area2D):
 	var area1_to_player = player.global_position.distance_to(area1.global_position)
 	var area2_to_player = player.global_position.distance_to(area2.global_position)
